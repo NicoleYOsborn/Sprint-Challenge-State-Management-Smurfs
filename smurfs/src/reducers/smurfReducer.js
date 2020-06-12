@@ -27,11 +27,10 @@ export const smurfReducer = (state = initialState, action) => {
         error: action.payload 
       }  
     case ADD_SMURF:
-        return [...state,
-            {
-               task: action.payload,
-               id: Date.now(),
-               completed: false,}]       
+        return{
+         ...state,
+            smurfs: action.payload
+        }       
     default:
       return state;
   }
