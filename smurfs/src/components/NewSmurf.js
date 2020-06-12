@@ -9,7 +9,7 @@ const initialState = {
 }
 
 
-const NewSmurf = () =>{
+const NewSmurf = props =>{
     const [newSmurf, setData] = useState(initialState);
 
     const handleChanges = e => {
@@ -21,7 +21,7 @@ const NewSmurf = () =>{
     const handleAddSmurf = e =>{
         e.preventDefault();
         // console.log(props);
-        addSmurf(newSmurf);
+        props.addSmurf(newSmurf);
         setData(initialState);
     }
     return(   
