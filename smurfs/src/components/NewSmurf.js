@@ -9,17 +9,20 @@ const initialState = {
 }
 
 
-const NewSmurf = props =>{
-    const [data, setData] = useState(initialState);
+const NewSmurf = () =>{
+    const [newSmurf, setData] = useState(initialState);
 
     const handleChanges = e => {
+        console.log(e.target.value)
        let name = e.target.name
-       setData({...data, [name]: e.target.value})
+       setData({...newSmurf, [name]: e.target.value})
     }
 
     const handleAddSmurf = e =>{
         e.preventDefault();
-        props.addSmurf(data);
+        // console.log(props);
+        addSmurf(newSmurf);
+        setData(initialState);
     }
     return(   
     <div className = 'card'>
@@ -33,7 +36,7 @@ const NewSmurf = props =>{
                 <input
                 type='text'
                 name='name'
-                value={data.name}
+                value={newSmurf.name}
                 onChange = {handleChanges}
                 />
             </div>
@@ -43,7 +46,7 @@ const NewSmurf = props =>{
                 <input
                 type='text'
                 name='age'
-                value={data.age}
+                value={newSmurf.age}
                 onChange = {handleChanges}
                 />
             </div>
@@ -53,7 +56,7 @@ const NewSmurf = props =>{
                 <input
                 type='text'
                 name='height'
-                value={data.height}
+                value={newSmurf.height}
                 onChange = {handleChanges}
                 />
             </div>
@@ -64,8 +67,8 @@ const NewSmurf = props =>{
 
 // const mapStateToProps = state =>{
 //   return {
-//     smurfs: state.smurfs,
-//     error: state.error    
-// }
+//     smurfs: state.smurfs
+       
+// }}
 
 export default connect(null, {addSmurf})(NewSmurf);

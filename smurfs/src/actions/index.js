@@ -19,14 +19,12 @@ export const getData = () => dispatch => {
     })
   };
 
-export const addSmurf = (data) => dispatch => {
+export const addSmurf = (newSmurf) => dispatch => {
     dispatch({type: ADD_SMURF});
-    axios.post('http://localhost:3333/smurfs', { 
-      payload: data
-        })
+    axios.post('http://localhost:3333/smurfs', newSmurf)
     .then((res)=>{
         console.log(res);
-        // dispatch({type: DISPLAY_SMURFS, payload: res.data})
+        
     })
     .catch(err => {
         console.error('error posting data to api. err: ', err);
