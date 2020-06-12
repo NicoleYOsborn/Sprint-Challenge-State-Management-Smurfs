@@ -26,7 +26,7 @@ export const addSmurf = (data) => dispatch => {
         })
     .then((res)=>{
         console.log(res);
-        dispatch({type: DISPLAY_SMURFS, payload: res.data})
+        // dispatch({type: DISPLAY_SMURFS, payload: res.data})
     })
     .catch(err => {
         console.error('error posting data to api. err: ', err);

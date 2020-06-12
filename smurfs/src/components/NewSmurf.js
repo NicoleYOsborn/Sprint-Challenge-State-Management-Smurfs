@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react';
+import React, { useState} from 'react';
 import {connect} from 'react-redux'
 import {addSmurf} from '../actions/index';
 
@@ -13,7 +13,8 @@ const NewSmurf = props =>{
     const [data, setData] = useState(initialState);
 
     const handleChanges = e => {
-        setData(e.target.value);
+       let name = e.target.name
+       setData({...data, [name]: e.target.value})
     }
 
     const handleAddSmurf = e =>{
@@ -28,11 +29,11 @@ const NewSmurf = props =>{
         <div>
 
             <div>
-                <label htmlFor='smurfName'>Name:</label>  
+                <label htmlFor='name'>Name:</label>  
                 <input
                 type='text'
-                name='smurfName'
-                value={data.smurfName}
+                name='name'
+                value={data.name}
                 onChange = {handleChanges}
                 />
             </div>
@@ -61,12 +62,10 @@ const NewSmurf = props =>{
       </div>
 )}
 
-const mapStateToProps = state =>{
-  return {
-    name: state.smurfName,
-    age: state.age,
-    height: state.height
-}
-}
+// const mapStateToProps = state =>{
+//   return {
+//     smurfs: state.smurfs,
+//     error: state.error    
+// }
 
-export default connect(mapStateToProps, {addSmurf})(NewSmurf);
+export default connect(null, {addSmurf})(NewSmurf);

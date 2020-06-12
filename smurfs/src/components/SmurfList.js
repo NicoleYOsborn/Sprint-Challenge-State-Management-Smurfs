@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {getData} from '../actions/index'
 
 const SmurfList = props =>{
   return (
@@ -9,7 +10,7 @@ const SmurfList = props =>{
   ) : (
     props.smurfs.map(smurf => 
     <div className='card'>
-      <h3>{smurf.smurfName}</h3>
+      <h3>{smurf.name}</h3>
       <p>Age: {smurf.age}, Height: {smurf.height}</p>
   </div>
   )
@@ -25,4 +26,4 @@ const mapStateToProps = state =>{
   }
 }
 
-export default connect(mapStateToProps, {})(SmurfList);
+export default connect(mapStateToProps, {getData})(SmurfList);
