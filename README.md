@@ -22,11 +22,25 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What problem does the context API help solve?
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-- [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
-- [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+- [ x] What problem does the context API help solve?
+
+Context API solves the problem of “prop drilling”, needing to pass props from component to component to reach components at the bottom of the component tree.
+
+- [x ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+The store is an object which holds immutable state for the app. Actions are called when interactions on the DOM are requesting updates to state. The action requests the state from the reducer, which makes a copy of the part of the state that the action will be applied to and the new state is passed back to the DOM. All while leaving the original state intact in the store.
+
+- [ x] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is state that can be accessed by any component in the app. It is important to keep this state immutable, so that mutations to the state do not happen which can cause all kinds of bugs to occur. Application state can be changed within the component, and is only available to other components if it is passed via props.
+
+- [x ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux-thunk is a middleware, which allows for transition state during asynchronous actions. It changes the action creators because it has them return another function. 
+
+- [ x] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+I liked Context API best because it seemed simpler and I didn’t have to install so many dependencies, just import something that is already included in React.
 
 ## Project Set Up
 
