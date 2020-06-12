@@ -8,6 +8,7 @@ import {smurfReducer as reducer} from '../reducers/smurfReducer';
 
 import SmurfForm from './SmurfForm';
 import SmurfList from './SmurfList'
+import NewSmurf from "./NewSmurf";
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -17,6 +18,7 @@ export default function App() {
     <div className="App">
       <h1>🍄🍄    Welcome to Smurf Village!    🍄🍄</h1>
       <SmurfForm />
+      <NewSmurf />
       <SmurfList />
     </div>
     </Provider>

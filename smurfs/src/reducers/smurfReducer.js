@@ -1,4 +1,4 @@
-import { FETCH_SMURFS, ADD_SMURF, SET_ERROR } from "../actions/index";
+import { FETCH_SMURFS, SET_ERROR, DISPLAY_SMURFS, ADD_SMURF } from "../actions/index";
 
 const initialState = {
   smurfs: [],
@@ -14,7 +14,7 @@ export const smurfReducer = (state = initialState, action) => {
         isFetchingData: true,
         smurfs: []
       };
-    case ADD_SMURF:
+    case DISPLAY_SMURFS:
       return {
         ...state,
         smurfs: action.payload,
@@ -25,7 +25,13 @@ export const smurfReducer = (state = initialState, action) => {
         ...state,
         isFectiongData: false,
         error: action.payload 
-      }    
+      }  
+    case ADD_SMURF:
+        return [...state,
+            {
+               task: action.payload,
+               id: Date.now(),
+               completed: false,}]       
     default:
       return state;
   }
